@@ -106,7 +106,9 @@ module.exports = {
           /\.(js|jsx)$/,
           /\.css$/,
           /\.json$/,
-          /\.svg$/
+          /\.svg$/,
+          /\.sass$/,
+          /\.scss$/
         ],
         loader: 'url',
         query: {
@@ -134,7 +136,7 @@ module.exports = {
       // in development "style" loader enables hot editing of CSS.
       {
         test: /\.scss$/, 
-        loader: ExtractTextPlugin.extract('style-loader', ['css-loader?-autoprefixer&sourceMap', 'postcss-loader', 'sass-loader?sourceMap'])
+        loaders: ['style', 'css', 'sass']
       },
       // JSON is not enabled by default in Webpack but both Node and Browserify
       // allow it implicitly so we also enable it.
